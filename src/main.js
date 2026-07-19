@@ -22,23 +22,47 @@ const state = {sections: []};
 const $ = (selector) => document.querySelector(selector);
 const normalize = (value) => value.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-const visualRules = [
-  {words: ['kişisel koruyucu', 'iş güvenliği uzmanı', 'işyeri hekimi'], image: '/figures/page-185-1.png', label: 'Baret, iş elbisesi ve koruyucu eldiven kullanan işçi'},
-  {words: ['sağlık ve güvenlik işaretleri'], image: '/figures/page-175-1.png', label: 'Güvenlik ve yasaklama işareti'},
-  {words: ['patlayıcı', 'büyük endüstriyel'], image: '/figures/page-175-11.png', label: 'Patlama tehlikesi işareti'},
-  {words: ['kimyasal', 'kanserojen', 'asbest', 'toz'], image: '/figures/page-175-8.png', label: 'Zehirli ve tehlikeli madde işareti'},
-  {words: ['biyolojik'], image: '/figures/page-263-1.png', label: 'Biyolojik risk işareti'},
-  {words: ['yapı işleri', 'iş ekipman'], image: '/figures/page-126-1.png', label: 'Yapı işlerinde düşmeye karşı güvenlik görseli'},
-  {words: ['acil durum', 'yangın', 'işin durdurul'], image: '/figures/page-175-10.png', label: 'Yangın tehlikesi işareti'},
-  {words: ['gürültü', 'titreşim'], image: '/figures/page-175-1.png', label: 'İş sağlığı ve güvenliği uyarı işareti'},
-];
+const topicVisuals = {
+  'mevzuat-1': ['01-6331-law', 'Kanun ve mevzuat dosyası'],
+  'mevzuat-2': ['02-building', 'İşyeri binası ve yapı ekipmanı'],
+  'mevzuat-3': ['03-equipment', 'İş ekipmanı ve ayar simgesi'],
+  'mevzuat-4': ['04-explosive', 'Patlama ve yangın tehlikesi'],
+  'mevzuat-5': ['05-chemical', 'Kimyasal laboratuvar şişesi'],
+  'mevzuat-6': ['06-construction', 'Yapı ve inşaat ekipmanı'],
+  'mevzuat-7': ['07-ppe', 'Koruyucu eldiven'],
+  'mevzuat-8': ['08-risk', 'Riskten korunma kalkanı'],
+  'mevzuat-9': ['09-emergency', 'Acil durum bildirimi'],
+  'mevzuat-10': ['10-signs', 'Güvenlik ve işaret bayrağı'],
+  'mevzuat-11': ['11-health', 'İş sağlığı ve kalp sağlığı'],
+  'mevzuat-12': ['12-noise', 'Gürültü ve işitme koruması'],
+  'mevzuat-13': ['13-vibration', 'Titreşim ve bağlantı dalgaları'],
+  'mevzuat-14': ['14-dust', 'Tozla mücadele ve temizlik'],
+  'mevzuat-15': ['15-doctor', 'Çalışan sağlığı ve sağlık personeli'],
+  'mevzuat-16': ['16-expert', 'Uzmanlık ve eğitim başlığı'],
+  'mevzuat-17': ['17-employer', 'İşveren ve çalışma düzeni'],
+  'mevzuat-18': ['18-board', 'Kurul ve toplantı notları'],
+  'mevzuat-19': ['19-training', 'Mesleki eğitim ve başarı'],
+  'mevzuat-20': ['20-education', 'Çalışan eğitimi ve öğrenme'],
+  'mevzuat-21': ['21-carcinogen', 'Kanserojen madde laboratuvarı'],
+  'mevzuat-22': ['22-biological', 'Biyolojik etken ve risk'],
+  'mevzuat-23': ['23-pregnancy', 'Gebe çalışanların korunması'],
+  'mevzuat-24': ['24-manual', 'Elle taşıma ve yük'],
+  'mevzuat-25': ['25-screen', 'Ekranlı araç ve bilgisayar'],
+  'mevzuat-26': ['26-asbestos', 'Asbest ve lifli malzeme'],
+  'mevzuat-27': ['27-hygiene', 'İş hijyeni ve laboratuvar'],
+  'mevzuat-28': ['28-hours', 'Çalışma süresi ve zaman'],
+  'mevzuat-29': ['29-night', 'Gece postası ve çalışma'],
+  'mevzuat-30': ['30-temporary', 'Geçici çalışma takvimi'],
+  'mevzuat-31': ['31-stop', 'İşin durdurulması ve kilit'],
+  'mevzuat-32': ['32-industry', 'Endüstriyel kaza ve grafik'],
+  'mevzuat-33': ['33-fishing', 'Balıkçı gemisi ve açık hava'],
+  'mevzuat-34': ['34-labour', 'İş Kanunu ve hedef adalet'],
+  'mevzuat-35': ['35-international', 'Uluslararası işgücü ve konum'],
+};
 
 function visualFor(section) {
-  const title = normalize(section.title);
-  return visualRules.find((rule) => rule.words.some((word) => title.includes(normalize(word)))) || {
-    image: '/figures/page-185-1.png',
-    label: 'İş sağlığı ve güvenliği için koruyucu ekipman',
-  };
+  const [name, label] = topicVisuals[section.id] || topicVisuals['mevzuat-1'];
+  return {image: `/topic-icons/${name}.webp`, label};
 }
 
 function renderSections(filter = '') {
