@@ -239,15 +239,11 @@ function linkLongProvisions() {
       }
       if (!active) return;
       card.dataset.copyGroup = group.id;
-      card.querySelector('.copy-provision')?.setAttribute('title', group.title);
-      if (card !== firstCard) card.classList.add('copy-group-secondary');
-      if (card === firstCard) {
-        const button = card.querySelector('.copy-provision');
-        if (button) {
-          button.textContent = 'Tümünü Kopyala';
-          button.dataset.defaultLabel = 'Tümünü Kopyala';
-        }
-        card.classList.add('copy-group-primary');
+      const button = card.querySelector('.copy-provision');
+      if (button) {
+        button.setAttribute('title', group.title);
+        button.textContent = 'Tümünü Kopyala';
+        button.dataset.defaultLabel = 'Tümünü Kopyala';
       }
       if (cardText.includes(endText)) active = false;
     });
