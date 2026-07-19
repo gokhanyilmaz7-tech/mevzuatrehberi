@@ -4,7 +4,6 @@ const table = document.querySelector('#ipc-table');
 const tbody = table.querySelector('tbody');
 const search = document.querySelector('#ipc-search');
 const result = document.querySelector('#ipc-result');
-const status = document.querySelector('#ipc-status');
 const copyButton = document.querySelector('#ipc-copy');
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[character]));
 const formatCell = (value) => {
@@ -135,7 +134,6 @@ function render(rows, title) {
       : row.map((cell, columnIndex) => renderCell(row, index, columnIndex)).join('');
     return `<tr class="ipc-data-row ${shades[index]}${isMajor(row) ? ' major' : ''}" data-row-text="${escapeHtml(row.map(formatCell).join(' '))}">${cells}</tr>`;
   }).join('');
-  status.textContent = `${dataRows.length} ceza satırı · Excel tablosundan aktarıldı`;
   filterRows();
 }
 
@@ -153,4 +151,4 @@ async function copyTable() {
 
 search.addEventListener('input', filterRows);
 copyButton.addEventListener('click', copyTable);
-fetch('/ipc-2026.json').then((response) => { if (!response.ok) throw new Error('Excel tablosu yüklenemedi.'); return response.json(); }).then((data) => render(data.values, data.values[0][0])).catch((error) => { status.textContent = error.message; });
+fetch('/ipc-2026.json').then((response) => { if (!response.ok) throw new Error('Excel tablosu yüklenemedi.'); return response.json(); }).then((data) => render(data.values, data.values[0][0])).catch((error) => { console.error(error); });
