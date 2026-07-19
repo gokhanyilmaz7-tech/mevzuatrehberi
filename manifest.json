@@ -1,0 +1,286 @@
+{
+  "pdf": "dayanaklar.pdf",
+  "pageCount": 400,
+  "sections": [
+    {
+      "id": "mevzuat-1",
+      "title": "6331 SAYILI İŞ SAĞLIĞI VE GÜVENLİĞİ KANUNU",
+      "startPage": 2,
+      "endPage": 13,
+      "pageCount": 12,
+      "data": "sections/mevzuat-1.json"
+    },
+    {
+      "id": "mevzuat-2",
+      "title": "İŞYERİ BİNA VE EKLENTİLERİNDE ALINACAK SAĞLIK VE GÜVENLİK ÖNLEMLERİNE İLİŞKİN YÖNETMELİK",
+      "startPage": 14,
+      "endPage": 26,
+      "pageCount": 13,
+      "data": "sections/mevzuat-2.json"
+    },
+    {
+      "id": "mevzuat-3",
+      "title": "İŞ EKİPMANLARININ KULLANIMINDA SAĞLIK VE GÜVENLİK ŞARTLARI YÖNETMELİĞİ",
+      "startPage": 27,
+      "endPage": 58,
+      "pageCount": 32,
+      "data": "sections/mevzuat-3.json"
+    },
+    {
+      "id": "mevzuat-4",
+      "title": "ÇALIŞANLARIN PATLAYICI ORTAMLARIN TEHLİKELERİNDEN KORUNMASI HAKKINDA YÖNETMELİK",
+      "startPage": 59,
+      "endPage": 64,
+      "pageCount": 6,
+      "data": "sections/mevzuat-4.json"
+    },
+    {
+      "id": "mevzuat-5",
+      "title": "KİMYASAL MADDELERLE ÇALIŞMALARDA SAĞLIK VE GÜVENLİK ÖNLEMLERİ HAKKINDA YÖNETMELİK",
+      "startPage": 65,
+      "endPage": 77,
+      "pageCount": 13,
+      "data": "sections/mevzuat-5.json"
+    },
+    {
+      "id": "mevzuat-6",
+      "title": "YAPI İŞLERİNDE İŞ SAĞLIĞI VE GÜVENLİĞİ YÖNETMELİĞİ",
+      "startPage": 78,
+      "endPage": 151,
+      "pageCount": 74,
+      "data": "sections/mevzuat-6.json"
+    },
+    {
+      "id": "mevzuat-7",
+      "title": "KİŞİSEL KORUYUCU DONANIMLARIN İŞYERLERİNDE KULLANILMASI HAKKINDA YÖNETMELİK",
+      "startPage": 152,
+      "endPage": 156,
+      "pageCount": 5,
+      "data": "sections/mevzuat-7.json"
+    },
+    {
+      "id": "mevzuat-8",
+      "title": "İŞ SAĞLIĞI VE GÜVENLİĞİ RİSK DEĞERLENDİRMESİ YÖNETMELİĞİ",
+      "startPage": 157,
+      "endPage": 163,
+      "pageCount": 7,
+      "data": "sections/mevzuat-8.json"
+    },
+    {
+      "id": "mevzuat-9",
+      "title": "İŞYERLERİNDE ACİL DURUMLAR HAKKINDA YÖNETMELİK",
+      "startPage": 164,
+      "endPage": 171,
+      "pageCount": 8,
+      "data": "sections/mevzuat-9.json"
+    },
+    {
+      "id": "mevzuat-10",
+      "title": "SAĞLIK VE GÜVENLİK İŞARETLERİ YÖNETMELİĞİ",
+      "startPage": 172,
+      "endPage": 187,
+      "pageCount": 16,
+      "data": "sections/mevzuat-10.json"
+    },
+    {
+      "id": "mevzuat-11",
+      "title": "İŞ SAĞLIĞI VE GÜVENLİĞİ HİZMETLERİ YÖNETMELİĞİ",
+      "startPage": 188,
+      "endPage": 191,
+      "pageCount": 4,
+      "data": "sections/mevzuat-11.json"
+    },
+    {
+      "id": "mevzuat-12",
+      "title": "ÇALIŞANLARIN GÜRÜLTÜ İLE İLGİLİ RİSKLERDEN KORUNMALARINA DAİR YÖNETMELİK",
+      "startPage": 192,
+      "endPage": 198,
+      "pageCount": 7,
+      "data": "sections/mevzuat-12.json"
+    },
+    {
+      "id": "mevzuat-13",
+      "title": "ÇALIŞANLARIN TİTREŞİMLE İLGİLİ RİSKLERDEN KORUNMALARINA DAİR YÖNETMELİK",
+      "startPage": 199,
+      "endPage": 205,
+      "pageCount": 7,
+      "data": "sections/mevzuat-13.json"
+    },
+    {
+      "id": "mevzuat-14",
+      "title": "TOZLA MÜCADELE YÖNETMELİĞİ",
+      "startPage": 206,
+      "endPage": 213,
+      "pageCount": 8,
+      "data": "sections/mevzuat-14.json"
+    },
+    {
+      "id": "mevzuat-15",
+      "title": "İŞYERİ HEKİMİ VE DİĞER SAĞLIK PERSONELİNİN GÖREV, YETKİ, SORUMLULUK VE EĞİTİMLERİ HAKKINDA YÖNETMELİK",
+      "startPage": 214,
+      "endPage": 215,
+      "pageCount": 2,
+      "data": "sections/mevzuat-15.json"
+    },
+    {
+      "id": "mevzuat-16",
+      "title": "İŞ GÜVENLİĞİ UZMANLARININ GÖREV, YETKİ, SORUMLULUK VE EĞİTİMLERİ HAKKINDA YÖNETMELİK",
+      "startPage": 216,
+      "endPage": 217,
+      "pageCount": 2,
+      "data": "sections/mevzuat-16.json"
+    },
+    {
+      "id": "mevzuat-17",
+      "title": "İŞYERLERİNDE İŞVEREN VEYA İŞVEREN VEKİLİ TARAFINDAN YÜRÜTÜLECEK İŞ SAĞLIĞI VE GÜVENLİĞİ HİZMETLERİNE İLİŞKİN YÖNETMELİK",
+      "startPage": 218,
+      "endPage": 218,
+      "pageCount": 1,
+      "data": "sections/mevzuat-17.json"
+    },
+    {
+      "id": "mevzuat-18",
+      "title": "İŞ SAĞLIĞI VE GÜVENLİĞİ KURULLARI HAKKINDA YÖNETMELİK",
+      "startPage": 219,
+      "endPage": 222,
+      "pageCount": 4,
+      "data": "sections/mevzuat-18.json"
+    },
+    {
+      "id": "mevzuat-19",
+      "title": "TEHLİKELİ VE ÇOK TEHLİKELİ SINIFTA YER ALAN İŞLERDE ÇALIŞTIRILACAKLARIN MESLEKİ EĞİTİMLERİNE DAİR YÖNETMELİK",
+      "startPage": 223,
+      "endPage": 229,
+      "pageCount": 7,
+      "data": "sections/mevzuat-19.json"
+    },
+    {
+      "id": "mevzuat-20",
+      "title": "ÇALIŞANLARIN İŞ SAĞLIĞI VE GÜVENLİĞİ EĞİTİMLERİNİN USUL VE ESASLARI HAKKINDA YÖNETMELİK",
+      "startPage": 230,
+      "endPage": 242,
+      "pageCount": 13,
+      "data": "sections/mevzuat-20.json"
+    },
+    {
+      "id": "mevzuat-21",
+      "title": "KANSEROJEN VEYA MUTAJEN MADDELERLE ÇALIŞMALARDA SAĞLIK VE GÜVENLİK ÖNLEMLERİ HAKKINDA YÖNETMELİK",
+      "startPage": 243,
+      "endPage": 252,
+      "pageCount": 10,
+      "data": "sections/mevzuat-21.json"
+    },
+    {
+      "id": "mevzuat-22",
+      "title": "BİYOLOJİK ETKENLERE MARUZİYET RİSKLERİNİN ÖNLENMESİ HAKKINDA YÖNETMELİK",
+      "startPage": 253,
+      "endPage": 281,
+      "pageCount": 29,
+      "data": "sections/mevzuat-22.json"
+    },
+    {
+      "id": "mevzuat-23",
+      "title": "GEBE VEYA EMZİREN KADINLARIN ÇALIŞTIRILMA ŞARTLARIYLA EMZİRME ODALARI VE ÇOCUK BAKIM YURTLARINA DAİR YÖNETMELİK",
+      "startPage": 282,
+      "endPage": 300,
+      "pageCount": 19,
+      "data": "sections/mevzuat-23.json"
+    },
+    {
+      "id": "mevzuat-24",
+      "title": "ELLE TAŞIMA İŞLERİ YÖNETMELİĞİ",
+      "startPage": 301,
+      "endPage": 303,
+      "pageCount": 3,
+      "data": "sections/mevzuat-24.json"
+    },
+    {
+      "id": "mevzuat-25",
+      "title": "EKRANLI ARAÇLARLA ÇALIŞMALARDA SAĞLIK VE GÜVENLİK ÖNLEMLERİ HAKKINDA YÖNETMELİK",
+      "startPage": 304,
+      "endPage": 309,
+      "pageCount": 6,
+      "data": "sections/mevzuat-25.json"
+    },
+    {
+      "id": "mevzuat-26",
+      "title": "ASBESTLE ÇALIŞMALARDA SAĞLIK VE GÜVENLİK ÖNLEMLERİ HAKKINDA YÖNETMELİK",
+      "startPage": 310,
+      "endPage": 319,
+      "pageCount": 10,
+      "data": "sections/mevzuat-26.json"
+    },
+    {
+      "id": "mevzuat-27",
+      "title": "İŞ HİJYENİ ÖLÇÜM, TEST VE ANALİZLERİ HAKKINDA YÖNETMELİK",
+      "startPage": 320,
+      "endPage": 321,
+      "pageCount": 2,
+      "data": "sections/mevzuat-27.json"
+    },
+    {
+      "id": "mevzuat-28",
+      "title": "SAĞLIK KURALLARI BAKIMINDAN GÜNDE AZAMİ YEDİ BUÇUK SAAT veya DAHA AZ ÇALIŞILMASI GEREKEN İŞLER HAKKINDA YÖNETMELİK",
+      "startPage": 322,
+      "endPage": 326,
+      "pageCount": 5,
+      "data": "sections/mevzuat-28.json"
+    },
+    {
+      "id": "mevzuat-29",
+      "title": "KADIN ÇALIŞANLARIN GECE POSTALARINDA ÇALIŞTIRILMA KOŞULLARI HAKKINDA YÖNETMELİK",
+      "startPage": 327,
+      "endPage": 329,
+      "pageCount": 3,
+      "data": "sections/mevzuat-29.json"
+    },
+    {
+      "id": "mevzuat-30",
+      "title": "GEÇİCİ VEYA BELİRLİ SÜRELİ İŞLERDE İŞ SAĞLIĞI ve GÜVENLİĞİ HAKKINDA YÖNETMELİK",
+      "startPage": 330,
+      "endPage": 332,
+      "pageCount": 3,
+      "data": "sections/mevzuat-30.json"
+    },
+    {
+      "id": "mevzuat-31",
+      "title": "İŞYERLERİNDE İŞİN DURDURULMASINA DAİR YÖNETMELİK",
+      "startPage": 333,
+      "endPage": 333,
+      "pageCount": 1,
+      "data": "sections/mevzuat-31.json"
+    },
+    {
+      "id": "mevzuat-32",
+      "title": "BÜYÜK ENDÜSTRİYEL KAZALARIN ÖNLENMESİ VE ETKİLERİNİN AZALTILMASI HAKKINDA YÖNETMELİK",
+      "startPage": 334,
+      "endPage": 360,
+      "pageCount": 27,
+      "data": "sections/mevzuat-32.json"
+    },
+    {
+      "id": "mevzuat-33",
+      "title": "BALIKÇI GEMİLERİNDE YAPILAN ÇALIŞMALARDA SAĞLIK VE GÜVENLİK ÖNLEMLERİ HAKKINDA YÖNETMELİK",
+      "startPage": 361,
+      "endPage": 383,
+      "pageCount": 23,
+      "data": "sections/mevzuat-33.json"
+    },
+    {
+      "id": "mevzuat-34",
+      "title": "4857 Sayılı İŞ KANUNU",
+      "startPage": 384,
+      "endPage": 389,
+      "pageCount": 6,
+      "data": "sections/mevzuat-34.json"
+    },
+    {
+      "id": "mevzuat-35",
+      "title": "6735 Sayılı ULUSLARARASI İŞGÜCÜ KANUNU",
+      "startPage": 390,
+      "endPage": 400,
+      "pageCount": 11,
+      "data": "sections/mevzuat-35.json"
+    }
+  ]
+}

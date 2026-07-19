@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#102a43" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Mevzuat</title>
+  </head>
+  <body>
+    <header class="article-topbar">
+      <a class="back-link" href="/">← Mevzuat listesine dön</a>
+      <span class="topbar-label">DAYANAKLAR (GENEL)</span>
+    </header>
+    <main class="article-layout">
+      <article class="article-card">
+        <div class="article-heading">
+          <p class="eyebrow">SEÇİLİ MEVZUAT</p>
+          <h1 id="title">Yükleniyor…</h1>
+          <p class="article-meta" id="meta"></p>
+        </div>
+        <div class="article-tools">
+          <label class="article-search">
+            <span aria-hidden="true">⌕</span>
+            <input id="search" type="search" placeholder="Bu mevzuatta ara…" autocomplete="off" />
+            <span id="result-count"></span>
+          </label>
+          <div class="result-actions">
+            <button id="previous" type="button" title="Önceki sonuç">↑</button>
+            <button id="next" type="button" title="Sonraki sonuç">↓</button>
+          </div>
+        </div>
+        <p class="copy-tip">Metni doğrudan seçip kopyalayabilirsiniz. Word, Pages ve benzeri programlara yapıştırmaya uygundur.</p>
+        <div id="content" class="article-content"><p>Mevzuat yükleniyor…</p></div>
+      </article>
+    </main>
+    <script type="module" src="/src/section.js"></script>
+  </body>
+</html>
