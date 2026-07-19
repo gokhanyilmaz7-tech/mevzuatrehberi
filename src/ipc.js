@@ -15,6 +15,7 @@ const formatCell = (value) => {
 const isHeaderRepeat = (row) => row[0] === 'Kanun Maddesi' || String(row[4] || '').startsWith('10 dan Az') || String(row[4] || '').startsWith('AZ TEHLİKELİ');
 const isMajor = (row) => /^MADDE\s+\d+/i.test(String(row[0] || '').trim());
 const isNote = (row) => /^\*{1,2}\s|^Not:/i.test(String(row[0] || '').trim());
+const isFullWidthNote = (row) => isNote(row) || /^6331 sayılı Kanunun 24\. maddesi gereğince/i.test(String(row[0] || '').trim());
 
 function rowArticleNumber(row) {
   const label = String(row[0] || '').trim();
@@ -127,7 +128,13 @@ function render(rows, title) {
     }
     return `<td>${escapeHtml(formatCell(row[columnIndex]))}</td>`;
   };
-  tbody.innerHTML = dataRows.map((row, index) => `<tr class="ipc-data-row ${shades[index]}${isMajor(row) ? ' major' : ''}" data-row-text="${escapeHtml(row.map(formatCell).join(' '))}">${row.map((cell, columnIndex) => renderCell(row, index, columnIndex)).join('')}</tr>`).join('');
+  tbody.innerHTML = dataRows.map((row, index) => {
+    const fullWidth = isFullWidthNote(row);
+    const cells = fullWidth
+      ? `<td class="full-width-note" colspan="14">${escapeHtml(formatCell(row[0]))}</td>`
+      : row.map((cell, columnIndex) => renderCell(row, index, columnIndex)).join('');
+    return `<tr class="ipc-data-row ${shades[index]}${isMajor(row) ? ' major' : ''}" data-row-text="${escapeHtml(row.map(formatCell).join(' '))}">${cells}</tr>`;
+  }).join('');
   status.textContent = `${dataRows.length} ceza satırı · Excel tablosundan aktarıldı`;
   filterRows();
 }
