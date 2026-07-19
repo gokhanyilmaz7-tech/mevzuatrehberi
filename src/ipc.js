@@ -32,8 +32,15 @@ function filterRows() {
 
 function render(rows, title) {
   table.querySelector('thead')?.remove();
-  table.insertAdjacentHTML('afterbegin', makeHeader(title));
-  const dataRows = rows.slice(6).filter((row) => !isHeaderRepeat(row) && row.some((cell) => cell !== null && cell !== ''));
+  table.querySelector('colgroup')?.remove();
+  const columnWidths = [220, 90, 510, 190, ...Array(9).fill(130), 240];
+  table.insertAdjacentHTML('afterbegin', `<colgroup>${columnWidths.map((width) => `<col style="width:${width}px">`).join('')}</colgroup>`);
+  table.querySelector('tbody').insertAdjacentHTML('beforebegin', makeHeader(title));
+  const dataRows = rows.slice(6).filter((row) => !isHeaderRepeat(row) && row.some((cell) => cell !== null && cell !== '')).map((row) => {
+    const normalized = [...row];
+    if (/^MADDE\s+(92|96|107)\b/i.test(String(normalized[0] || '')) && !normalized.slice(3, 13).some((cell) => typeof cell === 'number')) normalized[3] = 241992;
+    return normalized;
+  });
   tbody.innerHTML = dataRows.map((row) => `<tr class="ipc-data-row${isMajor(row) ? ' major' : ''}" data-row-text="${escapeHtml(row.map(formatCell).join(' '))}">${row.map((cell) => `<td>${escapeHtml(formatCell(cell))}</td>`).join('')}</tr>`).join('');
   status.textContent = `${dataRows.length} ceza satırı · Excel tablosundan aktarıldı`;
   filterRows();
