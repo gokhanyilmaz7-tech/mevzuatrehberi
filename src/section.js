@@ -209,6 +209,43 @@ function linkCrossPageAnnotations() {
   });
 }
 
+function linkLongProvisions() {
+  if (id !== 'mevzuat-28') return;
+  const cards = [...content.querySelectorAll('.provision-card')];
+  const groups = [
+    {
+      id: 'long-provision-madde-4',
+      start: 'Günde azami yedi buçuk saat çalışılabilecek işler',
+      end: 'madde 4/1)',
+      title: 'Madde 4 hükmünün tamamını ve dayanağını kopyala',
+    },
+    {
+      id: 'long-provision-madde-5',
+      start: 'Günde yedi buçuk saatten daha az çalışılması gereken işler',
+      end: 'madde 5/1)',
+      title: 'Madde 5 hükmünün tamamını ve dayanağını kopyala',
+    },
+  ];
+  groups.forEach((group) => {
+    const startText = compact(group.start);
+    const endText = compact(group.end);
+    let active = false;
+    let firstCard = null;
+    cards.forEach((card) => {
+      const cardText = compact(card.innerText);
+      if (!active && cardText.includes(startText)) {
+        active = true;
+        firstCard = card;
+      }
+      if (!active) return;
+      card.dataset.copyGroup = group.id;
+      card.querySelector('.copy-provision')?.setAttribute('title', group.title);
+      if (card !== firstCard) card.classList.add('copy-group-secondary');
+      if (cardText.includes(endText)) active = false;
+    });
+  });
+}
+
 async function load() {
   if (!id) throw new Error('Mevzuat seçilmedi.');
   const response = await fetch(`/sections/${id}.json`);
@@ -236,6 +273,7 @@ async function load() {
   meta.textContent = `${pages.length} sayfa · PDF ile aynı sayfa sırası ve yerleşim`;
   content.innerHTML = pages.map((page) => formatLayoutPage(page, 400)).join('');
   linkCrossPageAnnotations();
+  linkLongProvisions();
   blocks = pages.map((page, index) => ({text: page.text, element: content.children[index]}));
   content.querySelectorAll('.copy-provision').forEach((button) => button.addEventListener('click', () => copyProvision(button)));
 }
