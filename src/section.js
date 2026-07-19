@@ -118,7 +118,7 @@ function formatLayoutPage(page, totalPages) {
     const top = Math.max(0, Math.min(...group.lines.map((line) => line.y)) - 10);
     const bottom = Math.max(...group.lines.map((line) => line.y + line.height)) + 10;
     const exactInner = group.lines.map((line) => `<div class="exact-line" style="left:${line.words[0].x * xScale}px;top:${line.y - top}px">${line.html.replace(/^<div[^>]*>|<\/div>$/g, '')}</div>`).join('');
-    const common = `<button class="copy-provision" type="button" title="Bu hükmü biçimli olarak kopyala">Kopyala</button><div class="provision-content">`;
+    const common = `<div class="copy-actions"><button class="copy-provision copy-all" data-copy-mode="all" type="button" title="Bu grubun tamamını biçimli olarak kopyala">Tümünü Kopyala</button><button class="copy-provision copy-single" data-copy-mode="single" type="button" title="Yalnızca bu hükmü biçimli olarak kopyala">Kopyala</button></div><div class="provision-content">`;
     const source = `<div class="copy-html-source">${copyParts.join('')}</div>`;
     const annotationClass = annotationOnly ? ' annotation-card' : '';
     return {flow: `<article class="provision-card${annotationClass}" data-block="${index}">${common}${inner}</div>${source}</article>`, exact: `<article class="provision-card exact-card${annotationClass}" data-block="${index}" style="top:${top}px;height:${bottom - top}px">${common}${exactInner}</div>${source}</article>`};
@@ -159,7 +159,7 @@ function render(query = '') {
 
 async function copyProvision(button) {
   const card = button.closest('.provision-card');
-  const groupId = card.dataset.copyGroup;
+  const groupId = button.dataset.copyMode === 'all' ? card.dataset.copyGroup : '';
   const cards = groupId ? [...document.querySelectorAll(`.provision-card[data-copy-group="${groupId}"]`)] : [card];
   const sources = cards.map((item) => item.querySelector('.copy-html-source')).filter(Boolean);
   const html = `<div style="font-family:'Times New Roman',Times,serif;font-size:12pt;line-height:1.35">${sources.map((source) => source.innerHTML).join('')}</div>`;
@@ -239,11 +239,11 @@ function linkLongProvisions() {
       }
       if (!active) return;
       card.dataset.copyGroup = group.id;
-      const button = card.querySelector('.copy-provision');
-      if (button) {
-        button.setAttribute('title', group.title);
-        button.textContent = 'Tümünü Kopyala';
-        button.dataset.defaultLabel = 'Tümünü Kopyala';
+      const allButton = card.querySelector('.copy-all');
+      if (allButton) {
+        allButton.setAttribute('title', group.title);
+        allButton.textContent = 'Tümünü Kopyala';
+        allButton.dataset.defaultLabel = 'Tümünü Kopyala';
       }
       if (cardText.includes(endText)) active = false;
     });
