@@ -40,5 +40,6 @@ body { margin: 0; background: radial-gradient(circle at 8% 0%, rgba(197,160,89,.
 .ipc-data-row.shade-white td, .ipc-data-row.shade-white td:nth-child(-n+3) { background: #fff; }
 .ipc-data-row.major td:first-child { font-weight: 700; }
 .ipc-data-row.hidden-row { display: none; }
+.ipc-data-row.merge-continuation td { border-top: 0; }
 @media (max-width: 1100px) { .ipc-table { width: 1500px; min-width: 1500px; } }
 @media (max-width: 700px) { .ipc-topbar { align-items: flex-start; flex-direction: column; }.ipc-tools { align-items: stretch; flex-direction: column; }.ipc-search { max-width: none; }#ipc-copy { width: 100%; } }

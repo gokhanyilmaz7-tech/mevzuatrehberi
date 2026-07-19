@@ -84,11 +84,15 @@ function render(rows, title) {
   }
   const shades = shadeRows(dataRows);
   // Excel'de aynı fiile ait dikey olarak birleştirilmiş C sütunu hücrelerini koru.
-  if (dataRows[11] && !formatCell(dataRows[11][2])) {
-    dataRows[11][2] = dataRows[12]?.[2] || '';
-    if (dataRows[12]) dataRows[12][2] = '';
+  if (dataRows[11] && dataRows[12]) {
+    dataRows[12].forEach((value, columnIndex) => {
+      if (!formatCell(dataRows[11][columnIndex]) && formatCell(value)) {
+        dataRows[11][columnIndex] = value;
+        dataRows[12][columnIndex] = '';
+      }
+    });
   }
-  const mergedC = new Map([[0, 1], [18, 19]]);
+  const mergedC = new Map([[0, 1], [17, 19]]);
   const renderCell = (row, rowIndex, columnIndex) => {
     if (columnIndex === 2 && rowIndex > 0 && [...mergedC.values()].includes(rowIndex)) return '';
     if (columnIndex === 2 && mergedC.has(rowIndex)) {
@@ -98,7 +102,7 @@ function render(rows, title) {
     }
     return `<td>${escapeHtml(formatCell(row[columnIndex]))}</td>`;
   };
-  tbody.innerHTML = dataRows.map((row, index) => `<tr class="ipc-data-row ${shades[index]}${isMajor(row) ? ' major' : ''}" data-row-text="${escapeHtml(row.map(formatCell).join(' '))}">${row.map((cell, columnIndex) => renderCell(row, index, columnIndex)).join('')}</tr>`).join('');
+  tbody.innerHTML = dataRows.map((row, index) => `<tr class="ipc-data-row ${shades[index]}${isMajor(row) ? ' major' : ''}${index === 18 ? ' merge-continuation' : ''}" data-row-text="${escapeHtml(row.map(formatCell).join(' '))}">${row.map((cell, columnIndex) => renderCell(row, index, columnIndex)).join('')}</tr>`).join('');
   status.textContent = `${dataRows.length} ceza satırı · Excel tablosundan aktarıldı`;
   filterRows();
 }
