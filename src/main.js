@@ -22,16 +22,32 @@ const state = {sections: []};
 const $ = (selector) => document.querySelector(selector);
 const normalize = (value) => value.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
+const visualRules = [
+  {words: ['kişisel koruyucu', 'iş güvenliği uzmanı', 'işyeri hekimi'], image: '/figures/page-185-1.png', label: 'Baret, iş elbisesi ve koruyucu eldiven kullanan işçi'},
+  {words: ['sağlık ve güvenlik işaretleri'], image: '/figures/page-175-1.png', label: 'Güvenlik ve yasaklama işareti'},
+  {words: ['patlayıcı', 'büyük endüstriyel'], image: '/figures/page-175-11.png', label: 'Patlama tehlikesi işareti'},
+  {words: ['kimyasal', 'kanserojen', 'asbest', 'toz'], image: '/figures/page-175-8.png', label: 'Zehirli ve tehlikeli madde işareti'},
+  {words: ['biyolojik'], image: '/figures/page-263-1.png', label: 'Biyolojik risk işareti'},
+  {words: ['yapı işleri', 'iş ekipman'], image: '/figures/page-126-1.png', label: 'Yapı işlerinde düşmeye karşı güvenlik görseli'},
+  {words: ['acil durum', 'yangın', 'işin durdurul'], image: '/figures/page-175-10.png', label: 'Yangın tehlikesi işareti'},
+  {words: ['gürültü', 'titreşim'], image: '/figures/page-175-1.png', label: 'İş sağlığı ve güvenliği uyarı işareti'},
+];
+
+function visualFor(section) {
+  const title = normalize(section.title);
+  return visualRules.find((rule) => rule.words.some((word) => title.includes(normalize(word)))) || {
+    image: '/figures/page-185-1.png',
+    label: 'İş sağlığı ve güvenliği için koruyucu ekipman',
+  };
+}
+
 function renderSections(filter = '') {
   const needle = normalize(filter);
   const visible = state.sections.filter((section) => normalize(section.title).includes(needle));
   $('#section-count').textContent = `${visible.length}/${state.sections.length}`;
   $('#section-list').innerHTML = visible.length ? visible.map((section) => `
-    <button class="section-item" data-id="${section.id}" type="button">
-      <span class="section-visual"><img src="/thumbnails/${section.id}.png" alt="${section.title} ilk sayfa önizlemesi" loading="lazy" /></span>
-      <span class="section-number">${String(state.sections.indexOf(section) + 1).padStart(2, '0')}</span>
-      <span class="section-name">${section.title}</span><span class="section-arrow">›</span>
-    </button>`).join('') : '<p class="empty-state">Aramanızla eşleşen mevzuat yok.</p>';
+    ${(() => { const visual = visualFor(section); return `<button class="section-item" data-id="${section.id}" type="button"><span class="section-visual"><img src="${visual.image}" alt="${visual.label}" loading="lazy" /></span><span class="section-number">${String(state.sections.indexOf(section) + 1).padStart(2, '0')}</span><span class="section-name">${section.title}</span><span class="section-arrow">›</span></button>`; })()}
+    `).join('') : '<p class="empty-state">Aramanızla eşleşen mevzuat yok.</p>';
   $('#section-list').querySelectorAll('[data-id]').forEach((button) => {
     button.addEventListener('click', () => window.open(`/mevzuat.html?id=${encodeURIComponent(button.dataset.id)}`, '_blank'));
   });
