@@ -12,7 +12,7 @@ app.innerHTML = `
   </header>
   <main class="layout">
     <aside class="sidebar">
-      <div class="sidebar-heading"><div><p class="eyebrow">İÇİNDEKİLER</p><h2>Mevzuat</h2></div><div class="sidebar-actions"><span class="count-badge" id="section-count">—</span><button id="ipc-open" class="ipc-open" type="button" title="İdari Para Cezaları (2026) tablosunu aç">İPC 2026</button></div></div>
+      <div class="sidebar-heading"><div><p class="eyebrow">İÇİNDEKİLER</p><h2>Mevzuat</h2></div><div class="sidebar-actions"><button id="ipc-open" class="ipc-open" type="button" title="İdari Para Cezaları (2026) tablosunu aç">İPC 2026</button></div></div>
       <label class="search-field sidebar-search"><span aria-hidden="true">⌕</span><input id="section-filter" type="search" placeholder="Mevzuat ara…" autocomplete="off" /></label>
       <nav id="section-list" class="section-list" aria-label="Mevzuat listesi"></nav>
     </aside>
@@ -71,7 +71,6 @@ function visualFor(section) {
 function renderSections(filter = '') {
   const needle = normalize(filter);
   const visible = state.sections.filter((section) => normalize(section.title).includes(needle));
-  $('#section-count').textContent = `${visible.length}/${state.sections.length}`;
   $('#section-list').innerHTML = visible.length ? visible.map((section) => `
     ${(() => { const visual = visualFor(section); return `<button class="section-item" data-id="${section.id}" type="button"><span class="section-visual"><img src="${visual.image}" alt="${visual.label}" loading="lazy" /></span><span class="section-number">${String(state.sections.indexOf(section) + 1).padStart(2, '0')}</span><span class="section-name">${section.title}</span><span class="section-arrow">›</span></button>`; })()}
     `).join('') : '<p class="empty-state">Aramanızla eşleşen mevzuat yok.</p>';
