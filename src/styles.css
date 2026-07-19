@@ -27,9 +27,13 @@ h1 { font-size: 20px; letter-spacing: -.02em; }
 .search-field input { width: 100%; min-width: 0; border: 0; outline: 0; padding: 14px 14px 14px 0; background: transparent; color: var(--ink); font-size: 13px; }
 .sidebar-search { max-width: 680px; margin: 0 0 30px; }
 .section-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 13px; }
-.section-item { display: grid; grid-template-columns: 34px 1fr 22px; align-items: center; gap: 10px; width: 100%; min-height: 70px; padding: 15px 17px; text-align: left; border: 1px solid #ebe4d7; border-radius: 16px; color: #364768; background: rgba(255,255,255,.82); box-shadow: 0 7px 20px rgba(26,43,75,.045); transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, color .18s ease; }
+.section-item { display: grid; grid-template-columns: 72px 34px 1fr 22px; align-items: center; gap: 12px; width: 100%; min-height: 96px; padding: 11px 14px 11px 11px; text-align: left; border: 1px solid #ebe4d7; border-radius: 16px; color: #364768; background: rgba(255,255,255,.82); box-shadow: 0 7px 20px rgba(26,43,75,.045); transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, color .18s ease; overflow: hidden; }
 .section-item:hover { color: var(--navy); border-color: rgba(197,160,89,.7); background: #fff; box-shadow: 0 14px 30px rgba(26,43,75,.12); transform: translateY(-3px); }
 .section-item.active { color: var(--navy); border-color: var(--gold); background: #fffaf0; box-shadow: 0 12px 28px rgba(197,160,89,.17); }
+.section-visual { position: relative; display: block; width: 72px; height: 72px; overflow: hidden; border: 1px solid #e7dcc6; border-radius: 11px; background: #f5f1e8; box-shadow: inset 0 0 0 1px rgba(255,255,255,.7); }
+.section-visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,43,75,.04), transparent 55%, rgba(197,160,89,.18)); pointer-events: none; }
+.section-visual img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: saturate(.9) contrast(.98); transition: transform .35s ease, filter .35s ease; }
+.section-item:hover .section-visual img { transform: scale(1.08); filter: saturate(1.08) contrast(1.03); }
 .section-number { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; color: #775a19; background: #fff4d9; font-size: 10px; font-weight: 700; }
 .section-name { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; line-height: 1.35; }
 .section-arrow { color: var(--gold); font-size: 22px; transition: transform .18s ease; }

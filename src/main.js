@@ -28,6 +28,7 @@ function renderSections(filter = '') {
   $('#section-count').textContent = `${visible.length}/${state.sections.length}`;
   $('#section-list').innerHTML = visible.length ? visible.map((section) => `
     <button class="section-item" data-id="${section.id}" type="button">
+      <span class="section-visual"><img src="/thumbnails/${section.id}.png" alt="${section.title} ilk sayfa önizlemesi" loading="lazy" /></span>
       <span class="section-number">${String(state.sections.indexOf(section) + 1).padStart(2, '0')}</span>
       <span class="section-name">${section.title}</span><span class="section-arrow">›</span>
     </button>`).join('') : '<p class="empty-state">Aramanızla eşleşen mevzuat yok.</p>';
