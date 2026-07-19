@@ -171,7 +171,7 @@ async function copyProvision(button) {
         'text/plain': new Blob([plain], {type: 'text/plain'}),
       })]);
       button.textContent = 'Kopyalandı';
-      setTimeout(() => { button.textContent = 'Kopyala'; }, 1200);
+      setTimeout(() => { button.textContent = button.dataset.defaultLabel || 'Kopyala'; }, 1200);
       return;
     } catch (error) { /* Safari izin vermezse aşağıdaki yerel seçim yöntemi kullanılır. */ }
   }
@@ -185,7 +185,7 @@ async function copyProvision(button) {
   selection.addRange(range);
   try { document.execCommand('copy'); } finally { selection.removeAllRanges(); }
   button.textContent = 'Kopyalandı';
-  setTimeout(() => { button.textContent = 'Kopyala'; }, 1200);
+  setTimeout(() => { button.textContent = button.dataset.defaultLabel || 'Kopyala'; }, 1200);
 }
 
 function moveResult(direction) {
@@ -241,6 +241,14 @@ function linkLongProvisions() {
       card.dataset.copyGroup = group.id;
       card.querySelector('.copy-provision')?.setAttribute('title', group.title);
       if (card !== firstCard) card.classList.add('copy-group-secondary');
+      if (card === firstCard) {
+        const button = card.querySelector('.copy-provision');
+        if (button) {
+          button.textContent = 'Tümünü Kopyala';
+          button.dataset.defaultLabel = 'Tümünü Kopyala';
+        }
+        card.classList.add('copy-group-primary');
+      }
       if (cardText.includes(endText)) active = false;
     });
   });
