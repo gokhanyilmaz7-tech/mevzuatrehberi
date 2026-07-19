@@ -94,11 +94,11 @@ function render(rows, title) {
   }
   const mergedC = new Map([[0, 1], [17, 19]]);
   const renderCell = (row, rowIndex, columnIndex) => {
-    if (columnIndex === 2 && rowIndex > 0 && [...mergedC.values()].includes(rowIndex)) return '';
+    if (columnIndex === 2 && [...mergedC].some(([start, end]) => rowIndex > start && rowIndex <= end)) return '';
     if (columnIndex === 2 && mergedC.has(rowIndex)) {
       const end = mergedC.get(rowIndex);
       const values = dataRows.slice(rowIndex, end + 1).map((item) => formatCell(item[2])).filter(Boolean);
-      return `<td rowspan="${end - rowIndex + 1}">${values.map(escapeHtml).join('<br>')}</td>`;
+      return `<td rowspan="${end - rowIndex + 1}">${values.map(escapeHtml).join('<br><br>')}</td>`;
     }
     return `<td>${escapeHtml(formatCell(row[columnIndex]))}</td>`;
   };
