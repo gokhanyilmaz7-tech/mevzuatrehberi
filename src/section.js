@@ -210,21 +210,14 @@ function linkCrossPageAnnotations() {
 }
 
 function linkLongProvisions() {
-  if (id !== 'mevzuat-28') return;
+  if (!['mevzuat-28', 'mevzuat-34'].includes(id)) return;
   const cards = [...content.querySelectorAll('.provision-card')];
-  const groups = [
-    {
-      id: 'long-provision-madde-4',
-      start: 'Günde azami yedi buçuk saat çalışılabilecek işler',
-      end: 'madde 4/1)',
-      title: 'Madde 4 hükmünün tamamını ve dayanağını kopyala',
-    },
-    {
-      id: 'long-provision-madde-5',
-      start: 'Günde yedi buçuk saatten daha az çalışılması gereken işler',
-      end: 'madde 5/1)',
-      title: 'Madde 5 hükmünün tamamını ve dayanağını kopyala',
-    },
+  const groups = id === 'mevzuat-28' ? [
+    { id: 'long-provision-madde-4', start: 'Günde azami yedi buçuk saat çalışılabilecek işler', end: 'madde 4/1)', title: 'Madde 4 hükmünün tamamını ve dayanağını kopyala' },
+    { id: 'long-provision-madde-5', start: 'Günde yedi buçuk saatten daha az çalışılması gereken işler', end: 'madde 5/1)', title: 'Madde 5 hükmünün tamamını ve dayanağını kopyala' },
+  ] : [
+    { id: 'long-provision-mobbing', start: '2025/3 sayılı Cumhurbaşkanlığı Genelgesi', end: '2025/3 sayılı ve İş Yerlerinde Psikolojik Tacizin (Mobbing) Önlenmesi Konulu Cumhurbaşkanlığı Genelgesi)', title: 'Mobbing hükmünün tamamını ve dayanağını kopyala' },
+    { id: 'long-provision-child-labour', start: 'Çalıştırma yaşı ve çocukları çalıştırma yasağı', end: 'Çocuk ve Genç İşçilerin Çalıştırılma Usul ve Esasları Hakkında Yönetmelik madde 5)', title: 'Çocukların çalıştırılması hükmünün tamamını ve dayanağını kopyala' },
   ];
   groups.forEach((group) => {
     const startText = compact(group.start);
