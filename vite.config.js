@@ -4,8 +4,8 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: 'index.html',
-        mevzuat: 'mevzuat.html',
+        main: 'templates/index.html',
+        mevzuat: 'templates/mevzuat.html',
       },
     },
   },
